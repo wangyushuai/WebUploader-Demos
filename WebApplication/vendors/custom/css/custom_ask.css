@@ -1,0 +1,188 @@
+﻿/*框架自定义样式*/
+#page_review  .row{
+    margin-top:15px;
+    margin-bottom:20px;
+}
+#datatable {
+    width: 100% !important;
+}
+._icheck {
+    width: 100% !important;
+}
+.dataTable .headings {
+    background: rgba(52, 73, 94, 0.94);
+    color: white;
+}
+._dt_row_MaxWidth{
+    max-width: 300px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+/*支持换行*/
+._dt_rows_MaxWidth {
+    max-width: 400px;
+    white-space:normal;
+}
+#datatable_processing {
+    z-index:100;
+}
+.alert-success {
+    color: #ffffff;
+    background-color: rgba(38, 185, 154, 0.88);
+    border-color: rgba(38, 185, 154, 0.88)
+}
+.alert-info {
+    color: #E9EDEF;
+    background-color: rgba(52, 152, 219, 0.88);
+    border-color: rgba(52, 152, 219, 0.88)
+}
+/*.alert-warning {
+    color: #E9EDEF;
+    background-color: rgba(243, 156, 18, 0.88);
+    border-color: rgba(243, 156, 18, 0.88)
+}
+.alert-danger,
+.alert-error {
+    color: #E9EDEF;
+    background-color: rgba(231, 76, 60, 0.88);
+    border-color: rgba(231, 76, 60, 0.88)
+}*/
+.w30 {
+    width:30px !important;
+}
+#datatable_length {
+    float: left !important;
+    margin-right: 20px;
+}
+._timeClear {
+    position: absolute;
+    display: inline-block;
+    right: 0px;
+    z-index: 2;
+    top: 0px;
+    width: 20px;
+    height: 34px;
+    text-align: center;
+    line-height:28px
+    /*vertical-align: middle;
+    margin:0 auto*/
+}
+.close i {
+    font-size:14px;
+}
+/*Jquery dataTables 设置列最大宽度，超出显示省略号*/
+._dt_row_MaxWidth {
+    max-width:200px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.dataTables_wrapper > .row{
+  overflow:auto !important; /*prevent datatables overflowing its container*/
+}
+/*自定义背景色*/
+._bg-warning {
+   background-color: #f0ad4e ;
+}
+
+._bg-danger {
+    background-color:#d9534f;
+}
+._bg-success {
+    background-color:#1ABB9C;
+}
+#datatable a {
+    cursor: pointer;
+}
+/* 正在加载样式，三个球*/
+.sk-spinner-three-bounce.sk-spinner {
+    margin: 0 auto;
+    width: 70px;
+    text-align: center;
+}
+.sk-spinner-three-bounce div {
+    width: 18px;
+    height: 18px;
+    background-color: #1ab394;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-threeBounceDelay 1.4s infinite ease-in-out;
+    animation: sk-threeBounceDelay 1.4s infinite ease-in-out;
+        animation-delay: 0s;
+        animation-fill-mode: none;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.sk-spinner-three-bounce .sk-bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+.sk-spinner-three-bounce .sk-bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-threeBounceDelay {
+        0%,
+        80%,
+        100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        }
+        40% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        }
+}
+    @keyframes sk-threeBounceDelay {
+        0%,
+        80%,
+        100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        }
+        40% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        }
+}
+.form-control {
+    border-radius:4px;
+}
+.form-control[disabled] {
+    background-color:#fff;
+}
+.ibox {
+    clear: both;
+    margin-bottom: 25px;
+    margin-top: 0;
+    padding: 0;
+    border:2px solid #e7eaec;
+
+}
+.ibox-title {
+    margin-bottom: 0;
+    padding: 14px 15px 7px;
+    min-height: 48px;
+}
+.ibox-content {
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+}
+.ln_solid {
+    border-top: 1px solid #e5e5e5;
+    color: #fff;
+    background-color: #fff;
+    height: 1px;
+    margin: 20px 0;
+    margin-top: 20px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+}
