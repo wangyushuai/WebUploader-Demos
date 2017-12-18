@@ -2,12 +2,9 @@
 <link href="../vendors/webuploader-0.1.5/webuploader.css" rel="stylesheet" />
 <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 <link href="../vendors/pnotify/dist/pnotify.custom.min.css" rel="stylesheet" />
-<link href="../vendors/webuploader-0.1.5/style_simple.css?v=1" rel="stylesheet" />
+<!--<link href="../vendors/webuploader-0.1.5/style_simple.css?v=1" rel="stylesheet" />-->
 <script src="../vendors/jquery/dist/jquery.min.js"></script>
 
-
-<input type="hidden" id="userid" value="<%=UserID %>" />
-<input type="hidden" id="authkey" value="<%=AuthKey %>" />
 <!--单独模块-->
 <!--上传图片-->
 <div id="wrapper">
@@ -80,8 +77,6 @@
 <script src="../vendors/webuploader-0.1.5/upload.js?v=2"></script>
 <script>
     $(function () {
-        $(function () {
-
             var userid = $('#userid').val();
             var authkey = $('#authkey').val();
             uid = $('#userid').val();
@@ -106,8 +101,5 @@
                     uploader._destroy();
                 }
             });
-
-        });
-
     });
 </script>

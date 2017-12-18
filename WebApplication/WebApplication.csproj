@@ -136,7 +136,6 @@
     <Content Include="vendors\webuploader-0.1.5\_view_simple.html" />
     <Content Include="Web.config" />
     <Content Include="Views\Upload\Index.cshtml" />
-    <Content Include="Views\Upload\SimpleUpload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -172,6 +171,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Upload\ModalUpload.cshtml" />
+    <Content Include="Views\Upload\SimpleUpload.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

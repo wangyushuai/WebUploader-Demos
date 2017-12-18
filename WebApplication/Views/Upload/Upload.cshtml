@@ -1,16 +1,7 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "WebUploader上传实例";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<link href="~/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link href="~/vendors/webuploader-0.1.5/webuploader.css" rel="stylesheet" />
-<link href="~/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-<link href="~/vendors/webuploader-0.1.5/style_simple.css?v=1" rel="stylesheet" />
-<link href="~/vendors/pnotify/dist/pnotify.custom.min.css" rel="stylesheet" />
-<link href="~/vendors/custom/css/custom_ask.css" rel="stylesheet" /><!--此样式文件无关紧要-->
-<script src="~/vendors/jquery/dist/jquery.min.js"></script>
-
-<title>WebUploader图片上传</title>
 
 <!--单独模块-->
 <!--上传图片-->
@@ -36,64 +27,18 @@
         </div>
     </div>
 </div>
-    <!--模态框 单独模块-->
-    <div id="imgModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" style="width: 900px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <h4 class="modal-title">上传图片</h4>
-                </div>
-                <div class="modal-body model-scroll" style="max-height: 500px;">
-                    <!--上传图片start-->
-                    <div id="wrapper">
-                        <div id="container">
-                            <div id="uploader">
-                                <div class="queueList">
-                                    <div id="dndArea" class="placeholder">
-                                        <div id="filePicker"></div>
-                                        <p>或将照片拖到这里，并支持截图粘贴功能</p>
-                                    </div>
-                                </div>
-                                <div class="statusBar" style="display: none;">
-                                    <div class="progress">
-                                        <span class="text">0%</span>
-                                        <span class="percentage"></span>
-                                    </div>
-                                    <div class="info"></div>
-                                    <div class="btns">
-                                        <div id="filePicker2"></div>
-                                        <div class="uploadBtn">开始上传</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--上传图片end-->
-                </div>
-            </div>
-        </div>
-    </div>
-    <button id="openUpload" type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgModal">上传图片</button>
 
-<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="../vendors/webuploader-0.1.5/webuploader.min.js"></script>
-<script src="../vendors/pnotify/dist/pnotify.custom.min.js"></script>
-<script src="../vendors/webuploader-0.1.5/upload.js?v=3"></script>
-<script src="~/vendors/custom/js/custom.js"></script><!--此脚本文件无关紧要-->
 <script>
         $(function () {
             var callback = function (response) {
                 if (response.Status == 200) {
-                    new PNotify({ title: "成功！", text: response.Message, type: 'success' });// 此处使用了Pnotify 插件, alert
+                    new PNotify({ title: "成功！", text: response.Message, type: 'success' });// 此处使用了Pnotify 插件== alert
                 } else {
                     new PNotify({ title: "失败！", text: response.Message, type: 'error' });
                 }
             }
 
-            _init_upload(callback);
+            _init_upload(callback);//初始化上传插件
 
         });
 </script>
