@@ -1,0 +1,105 @@
+﻿<link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../vendors/webuploader-0.1.5/webuploader.css" rel="stylesheet" />
+<link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../vendors/pnotify/dist/pnotify.custom.min.css" rel="stylesheet" />
+<!--<link href="../vendors/webuploader-0.1.5/style_simple.css?v=1" rel="stylesheet" />-->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+
+<!--单独模块-->
+<!--上传图片-->
+<div id="wrapper">
+    <div id="container">
+        <div id="uploader">
+            <div class="queueList">
+                <div id="dndArea" class="placeholder">
+                    <div id="filePicker"></div>
+                    <p>或将照片拖到这里，并支持截图粘贴功能</p>
+                </div>
+            </div>
+            <div class="statusBar" style="display:none;">
+                <div class="progress">
+                    <span class="text">0%</span>
+                    <span class="percentage"></span>
+                </div><div class="info"></div>
+                <div class="btns">
+                    <div id="filePicker2"></div>
+                    <div class="uploadBtn">开始上传</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--模态框 单独模块-->
+<div id="imgModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" style="width: 900px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">上传图片</h4>
+            </div>
+            <div class="modal-body model-scroll" style="max-height: 500px;">
+                <!--上传图片start-->
+                <div id="wrapper">
+                    <div id="container">
+                        <div id="uploader">
+                            <div class="queueList">
+                                <div id="dndArea" class="placeholder">
+                                    <div id="filePicker"></div>
+                                    <p>或将照片拖到这里，并支持截图粘贴功能</p>
+                                </div>
+                            </div>
+                            <div class="statusBar" style="display: none;">
+                                <div class="progress">
+                                    <span class="text">0%</span>
+                                    <span class="percentage"></span>
+                                </div>
+                                <div class="info"></div>
+                                <div class="btns">
+                                    <div id="filePicker2"></div>
+                                    <div class="uploadBtn">开始上传</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--上传图片end-->
+            </div>
+        </div>
+    </div>
+</div>
+<button id="openUpload" type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgModal">上传图片</button>
+
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../vendors/webuploader-0.1.5/webuploader.min.js"></script>
+<script src="../vendors/pnotify/dist/pnotify.custom.min.js"></script>
+<script src="../vendors/webuploader-0.1.5/upload.js?v=2"></script>
+<script>
+    $(function () {
+            var userid = $('#userid').val();
+            var authkey = $('#authkey').val();
+            uid = $('#userid').val();
+            t = authkey = $('#authkey').val();
+
+            var callback = function (response) {
+                //提取URL信息
+                var _raw = response._raw;
+                var index_s = _raw.indexOf("url:'");
+                var index_e = _raw.indexOf("',m:");
+                var imgAddr = response._raw.slice(index_s + 5, index_e);
+                console.log(imgAddr);
+            }
+
+            //打开模态框-初始化图片插件
+            $('#imgModal').on('shown.bs.modal', function () {
+                _init_upload(userid, authkey, callback);
+            });
+            //关闭模态框-销毁对象         
+            $('#imgModal').on('hidden.bs.modal', function () {
+                if (typeof (uploader) != "undefined") {
+                    uploader._destroy();
+                }
+            });
+    });
+</script>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebUpload上传实例</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+    <!--图片上传实例样式 start-->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../vendors/webuploader-0.1.5/webuploader.css" rel="stylesheet" />
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../vendors/pnotify/dist/pnotify.custom.min.css" rel="stylesheet" />
+    <link href="../vendors/webuploader-0.1.5/style_simple.css?v=1" rel="stylesheet" />
+    <link href="~/vendors/custom/css/custom_ask.css" rel="stylesheet" />
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!--图片上传实例样式 end-->
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Upload/Index">首页</a>
+                <a class="navbar-brand" href="/Upload/Upload">直接上传</a>
+                <a class="navbar-brand" href="/Upload/SimpleUpload">简单上传</a>
+                <a class="navbar-brand" href="/Upload/ModalUpload">模态框上传</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <!--图片上传实例样式 JS start-->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../vendors/webuploader-0.1.5/webuploader.min.js"></script>
+    <script src="../vendors/pnotify/dist/pnotify.custom.min.js"></script>
+    <script src="../vendors/webuploader-0.1.5/upload.js?v=2"></script><!--直接上传或模态框上传使用-->
+    <script src="~/vendors/webuploader-0.1.5/upload_simple.js"></script><!--简单上传使用-->
+    <script src="~/vendors/custom/js/custom.js"></script><!--无关紧要的JS-->
+    <!--图片上传实例样式 JS end-->
+</body>
+</html>

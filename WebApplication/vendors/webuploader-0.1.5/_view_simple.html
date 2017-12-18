@@ -1,0 +1,31 @@
+﻿<link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../vendors/webuploader-0.1.5/webuploader.css" rel="stylesheet" />
+<link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../vendors/pnotify/dist/pnotify.custom.min.css" rel="stylesheet" />
+<link href="../vendors/webuploader-0.1.5/style_simple.css" rel="stylesheet" />
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+
+
+<!--简单模块-->
+<div class="container">
+    <div class="row form-group">
+        <label class="control-label  col-lg-3 col-md-3">图片地址</label>
+        <div class="col-lg-5 col-md-6">
+            <input class="form-control" name="askImage" id="askImage" disabled="disabled" />
+        </div>
+        <div id="uploadImg">上传图片</div>
+        <button type="button" class="btn btn-primary">上传图片</button>
+    </div>
+    <div id="fileList" class="uploader-list  wu-example"></div>
+</div>
+
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../vendors/webuploader-0.1.5/webuploader.min.js"></script>
+<script src="../vendors/pnotify/dist/pnotify.custom.min.js"></script>
+<script src="upload_simple.js"></script>
+
+<script>
+    $(function () {
+        _init_simpleUpload();
+    })
+</script>

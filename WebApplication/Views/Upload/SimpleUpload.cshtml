@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "WebUploader上传实例";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--简单模块-->
+<div class="container form-horizontal">
+    <div class="row form-group">
+        <label class="control-label  col-lg-3 col-md-3">图片地址</label>
+        <div class="col-lg-5 col-md-6">
+            <input class="form-control" name="askImage" id="askImage" disabled="disabled" style="max-width:100%;" />
+        </div>
+        <div id="uploadImg">上传图片</div>
+        @*<button type="button" class="btn btn-primary">上传图片</button>*@
+    </div>
+    <div id="fileList" class="uploader-list  wu-example"></div>
+</div>
+
+<script>
+    $(function () {
+        _init_simpleUpload();
+    })
+</script>

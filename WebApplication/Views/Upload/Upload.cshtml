@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "WebUploader上传实例";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--单独模块-->
+<!--上传图片-->
+<div id="wrapper">
+    <div id="container">
+        <div id="uploader">
+            <div class="queueList">
+                <div id="dndArea" class="placeholder">
+                    <div id="filePicker"></div>
+                    <p>或将照片拖到这里，并支持截图粘贴功能</p>
+                </div>
+            </div>
+            <div class="statusBar" style="display:none;">
+                <div class="progress">
+                    <span class="text">0%</span>
+                    <span class="percentage"></span>
+                </div><div class="info"></div>
+                <div class="btns">
+                    <div id="filePicker2"></div>
+                    <div class="uploadBtn">开始上传</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        $(function () {
+            var callback = function (response) {
+                if (response.Status == 200) {
+                    new PNotify({ title: "成功！", text: response.Message, type: 'success' });// 此处使用了Pnotify 插件== alert
+                } else {
+                    new PNotify({ title: "失败！", text: response.Message, type: 'error' });
+                }
+            }
+
+            _init_upload(callback);//初始化上传插件
+
+        });
+</script>
+
