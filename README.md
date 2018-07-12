@@ -18,6 +18,8 @@
 ## 补充
 详情可参考博客：https://blog.csdn.net/shuai_wy/article/details/78654193
 
+author: yushuai_w@163.com
+
 
 # webuploader-1.1.5插件 使用说明
 
@@ -104,5 +106,4 @@ _init_upload(userid, authkey, callback);
 ```
 
 
-author: yushuai_w@163.com
 
