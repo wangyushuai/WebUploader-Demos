@@ -19,7 +19,7 @@
 详情可参考博客：https://blog.csdn.net/shuai_wy/article/details/78654193
 
 
-# webuploader-1.1.5插件-问答版本 使用说明
+# webuploader-1.1.5插件 使用说明
 
 **本插件基于 webuploader插件 进行了封装，提供了两种常用视图，并对问答后台常用上传功能进行了JS封装，视图，样式，业务逻辑都已封装（JS），可以直接引入使用。**
 
