@@ -77,23 +77,24 @@
 <script src="../vendors/webuploader-0.1.5/upload.js?v=2"></script>
 <script>
     $(function () {
-            var userid = $('#userid').val();
-            var authkey = $('#authkey').val();
-            uid = $('#userid').val();
-            t = authkey = $('#authkey').val();
+            //var userid = $('#userid').val();
+            //var authkey = $('#authkey').val();
+            //uid = $('#userid').val();
+            //t = authkey = $('#authkey').val();
 
-            var callback = function (response) {
-                //提取URL信息
-                var _raw = response._raw;
-                var index_s = _raw.indexOf("url:'");
-                var index_e = _raw.indexOf("',m:");
-                var imgAddr = response._raw.slice(index_s + 5, index_e);
-                console.log(imgAddr);
-            }
+            //var callback = function (response) {
+            //    //提取URL信息
+            //    var _raw = response._raw;
+            //    var index_s = _raw.indexOf("url:'");
+            //    var index_e = _raw.indexOf("',m:");
+            //    var imgAddr = response._raw.slice(index_s + 5, index_e);
+            //    console.log(imgAddr);
+            //}
 
             //打开模态框-初始化图片插件
             $('#imgModal').on('shown.bs.modal', function () {
-                _init_upload(userid, authkey, callback);
+               // _init_upload(userid, authkey,callback);//问答需要身份验证
+                _init_upload(userid, authkey);
             });
             //关闭模态框-销毁对象         
             $('#imgModal').on('hidden.bs.modal', function () {
