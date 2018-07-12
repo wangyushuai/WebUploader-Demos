@@ -1,7 +1,7 @@
 ﻿/**简单图片上传按钮
 *@author yushuai_w
 */
-function _init_simpleUpload() {
+function _init_simpleUpload(_requestUrl) {
     var $ = jQuery,
             $list = $('#fileList'),
             // 优化retina, 在retina下这个值是2
@@ -22,7 +22,7 @@ function _init_simpleUpload() {
         swf: '../vendors/webuploader-0.1.5/Uploader.swf',
 
         // 文件接收服务端。
-        server: '/Upload/UploadImg',
+        server: typeof(_requestUrl) == 'undefined' ? '/Upload/UploadImg' : _requestUrl,
         // 选择文件的按钮。可选。
         // 内部根据当前运行是创建，可能是input元素，也可能是flash.
         pick: '#uploadImg',

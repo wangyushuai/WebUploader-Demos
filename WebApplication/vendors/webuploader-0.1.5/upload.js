@@ -1,8 +1,9 @@
 /**初始化上传图片插件
 *@author yushuai_w
 *@param func: 上传成功回调函数
+*@param requestUrl: 请求路径(可选，不传默认路径)
 */
-function _init_upload(func)
+function _init_upload(func, _requestUrl)
 {
     $(function () {
         var $wrap = $('#uploader'),
@@ -152,7 +153,7 @@ function _init_upload(func)
             swf: './Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: '/Upload/UploadImg',
+            server: typeof(_requestUrl) == 'undefined' ? '/Upload/UploadImg' : _requestUrl,
             // runtimeOrder: 'flash',
 
             // 禁掉全局的拖拽功能。这样不会出现图片拖进页面的时候，把图片打开。
