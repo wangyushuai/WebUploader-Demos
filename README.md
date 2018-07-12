@@ -2,7 +2,7 @@
 基于三种WebUploader插件的图片上传实例
 
 在Asp.NET MVC 环境下，写了三个基于webUploader.js 的图片上传实例。
-Java 环境，请点击下方的联接
+Java 环境，请点击下方的链接
 
 ## 效果预览
 ![效果预览](http://img11.soufunimg.com/ask/2018_07/12/M01/0E/2A/ChCE4ltHFbaIaFKCAAFnMaf4eWgABDr8AEBpQEAAWdJ294.png)
