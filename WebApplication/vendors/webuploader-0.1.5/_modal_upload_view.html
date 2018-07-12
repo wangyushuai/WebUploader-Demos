@@ -1,5 +1,4 @@
-﻿
-<!--直接上传和模态框上传请使用 此视图 -->
+﻿<!--模态框上传请使用 此视图 -->
 <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="../vendors/webuploader-0.1.5/webuploader.css" rel="stylesheet" />
 <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -7,30 +6,7 @@
 <!--<link href="../vendors/webuploader-0.1.5/style_simple.css?v=1" rel="stylesheet" />-->
 <script src="../vendors/jquery/dist/jquery.min.js"></script>
 
-<!--单独模块-->
-<!--上传图片-->
-<div id="wrapper">
-    <div id="container">
-        <div id="uploader">
-            <div class="queueList">
-                <div id="dndArea" class="placeholder">
-                    <div id="filePicker"></div>
-                    <p>或将照片拖到这里，并支持截图粘贴功能</p>
-                </div>
-            </div>
-            <div class="statusBar" style="display:none;">
-                <div class="progress">
-                    <span class="text">0%</span>
-                    <span class="percentage"></span>
-                </div><div class="info"></div>
-                <div class="btns">
-                    <div id="filePicker2"></div>
-                    <div class="uploadBtn">开始上传</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!--模态框 单独模块-->
 <div id="imgModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" style="width: 900px;">
@@ -93,16 +69,6 @@
             //    console.log(imgAddr);
             //}
 
-            //打开模态框-初始化图片插件
-            $('#imgModal').on('shown.bs.modal', function () {
-               // _init_upload(userid, authkey,callback);//问答需要身份验证
-                _init_upload(userid, authkey);
-            });
-            //关闭模态框-销毁对象         
-            $('#imgModal').on('hidden.bs.modal', function () {
-                if (typeof (uploader) != "undefined") {
-                    uploader._destroy();
-                }
-            });
+        _init_upload(callback);
     });
 </script>
