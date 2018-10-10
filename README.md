@@ -28,6 +28,8 @@ author: yushuai_w@163.com
 1. 初始化方法添加请求路径参数
 2. 增加Java版本，[WebUploader实例JAVA环境版本Git](https://github.com/wangyushuai/demo_ssm.git)
 3. 添加使用说明：
+4. 20181010 优化简单上传功能
+- 新增wrapUpload.js demo， 对简单上传方法进行了封装，添加了移除、监听错误事件等方法。
 
 # webuploader-1.1.5插件 使用说明
 
