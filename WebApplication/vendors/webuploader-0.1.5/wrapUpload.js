@@ -7,12 +7,18 @@
  * @param listSelector 上传列表选择器，  如：#fcz_fileList
  * @param serverUrl 图片服务器地址
 */
+/** 租房图片上传插件
+ * @author wangyushuai
+ * @param pickerSelector 上传按钮选择器， 如：#fcz_uplaoder
+ * @param listSelector 上传列表选择器，  如：#fcz_fileList
+ * @param serverUrl 图片服务器地址
+*/
 function _init_simpleUpload(pickerSelector, listSelector, serverUrl) {
     if (typeof (pickerSelector) == "undefined" || typeof (pickerSelector) == "undefined") {
         console.log("_init_simpleUpload error !");
         return false;
     }
-    var defaultServerUrl = 'xxx'
+    var defaultServerUrl = 'xx.com';//默认地址
     var $ = jQuery,
         $wrap = $('#uploader'),
         // 图片容器
@@ -52,79 +58,54 @@ function _init_simpleUpload(pickerSelector, listSelector, serverUrl) {
             mimeTypes: 'image/jpg,image/jpeg,image/png'
         }
     });
-    // 当有文件添加进来的时候，
-    simple_upload.on('fileQueued', function (file) {
-        simple_upload._addFile(file);
-    });
+    //event: 当有文件添加进来的时候。
+    simple_upload.on('fileQueued', function (file) { });
 
-    //simple_upload.on('fileQueued', function (file) {
-    //    //add by wys 添加列表样式类
-    //    if (!$list.hasClass('wu-example')) {
-    //        $list.addClass('wu-example');
-    //    }
-
-    //    var $li = $(
-    //        '<div id="' + file.id + '" class="file-item thumbnail">' +
-    //        '<img>' +
-    //        '<div class="info">' + file.name + '</div>' +
-    //        '</div>'
-    //    ),
-    //        $img = $li.find('img');
-
-
-    //    //$list为容器jQuery实例
-    //    $list.append($li);
-
-    //    //创建缩略图
-    //    //如果为非图片文件，可以不用调用此方法。
-    //    //thumbnailWidth x thumbnailHeight 为 100 x 100
-    //    simple_upload.makeThumb(file, function (error, src) {
-    //        if (error) {
-    //            $img.replaceWith('<span>不能预览</span>');
-    //            return;
-    //        }
-
-    //        $img.attr('src', src);
-    //    }, thumbnailWidth, thumbnailHeight);
-    //});
-
-    // 文件上传过程中创建进度条实时显示。
-    simple_upload.on('uploadProgress', function (file, percentage) {
-        var $li = $('#' + file.id),
-            $percent = $li.find('.progress span');
-
-        // 避免重复创建
-        if (!$percent.length) {
-            $percent = $('<p class="progress"><span></span></p>')
-                .appendTo($li)
-                .find('span');
-        }
-
-        $percent.css('width', percentage * 100 + '%');
-    });
-
-
+    //event: 当文件被移除队列后触发
     simple_upload.on('fileDequeued', function (file) {
         simple_upload._removeFileView(file);
     });
 
+    //event: 文件上传过程中创建进度条实时显示。
+    simple_upload.on('uploadProgress', function (file, percentage) { });
 
-    // 文件上传成功，给item添加成功class, 用样式标记上传成功。
-    simple_upload.on('uploadSuccess', function (file) {
+    //event: 完成上传完了，成功或者失败，先删除进度条。
+    simple_upload.on('uploadComplete', function (file) { });
 
+    //event: 文件上传成功，给item添加成功class, 用样式标记上传成功。
+    simple_upload.on('uploadSuccess', function (file, data) {
+        simple_upload._addFile(file);
+        console.log(data);//打印上传返回的地址
+        //$(pickerSelector).hide();//隐藏上传按钮
     });
 
-    // 文件上传失败，显示上传出错，
+
+
+    //evnet: 文件上传失败，显示上传出错，
     simple_upload.on('uploadError', function (file) {
-        console.log("上传失败，请重新上传！");
-        //simple_upload.removeFile(file, true);
+        alert("上传失败，请重新上传！");
+        simple_upload.removeFile(file, true);
     });
 
-    // 完成上传完了，成功或者失败，先删除进度条。
-    simple_upload.on('uploadComplete', function (file) {
+    //evnet: 监听报错事件
+    simple_upload.on('error', function (code) {
+        switch (code) {
+            case 'Q_EXCEED_NUM_LIMIT':
+                simple_upload._notify('上传图片数量超过最大限制！');
+                break;
+            case 'Q_TYPE_DENIED':
+                //new PNotify({ title: "错误！", text: '请上传图片类型！', type: 'error' });
+                simple_upload._notify('请上传图片类型！');
+                break;
+            default:
+                //new PNotify({ title: "错误！", text: 'Eroor: ' + code, type: 'error' });
+                simple_upload._notify('Eroor: ' + code);
+                break;
+        }
     });
 
 
+    /**其他扩展方法*/
     //web uploader 扩展，负责view的销毁 add by wys
     simple_upload._removeFileView = function (file) {
         var $li = $('#' + file.id);
@@ -139,6 +120,7 @@ function _init_simpleUpload(pickerSelector, listSelector, serverUrl) {
             '<p class="imgWrap"></p>' +
             '</li>'),
 
+            //添加文件操作
             $btns = $('<div class="file-panel">' +
                 '<span class="cancel">删除</span></div>').appendTo($li);
 
@@ -160,8 +142,8 @@ function _init_simpleUpload(pickerSelector, listSelector, serverUrl) {
                     return;
             }
         });
+        //添加至列表
         $li.appendTo($queue);
-
 
         //  创建缩略图
         //  如果为非图片文件，可以不用调用此方法。
@@ -176,6 +158,11 @@ function _init_simpleUpload(pickerSelector, listSelector, serverUrl) {
             img.attr('src', src);
             imgWrap.empty().append(img);
         }, thumbnailWidth, thumbnailHeight);
+    }
+
+    //web uploader 扩展方法, 负责提出消息提示 add by wys
+    simple_upload._notify = function (msg) {
+        alert(msg);
     }
 
 }
