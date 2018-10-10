@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -132,7 +133,7 @@
     <Content Include="vendors\webuploader-0.1.5\upload_simple.js" />
     <Content Include="vendors\webuploader-0.1.5\webuploader.css" />
     <Content Include="vendors\webuploader-0.1.5\webuploader.min.js" />
-    <Content Include="vendors\webuploader-0.1.5\_view.html" />
+    <Content Include="vendors\webuploader-0.1.5\wrapUpload.js" />
     <Content Include="vendors\webuploader-0.1.5\_view_simple.html" />
     <Content Include="Web.config" />
     <Content Include="Views\Upload\Index.cshtml" />
@@ -163,7 +164,6 @@
     <Content Include="vendors\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="vendors\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="vendors\jquery\dist\jquery.min.map" />
-    <Content Include="vendors\webuploader-0.1.5\webuploader-1.1.5-ask.md" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Upload\Upload.cshtml" />
